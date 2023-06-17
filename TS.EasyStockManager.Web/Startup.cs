@@ -41,10 +41,7 @@ namespace TS.EasyStockManager.Web
         {
             services.AddDbContext<EasyStockManagerDbContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:SqlConStr"].ToString(), o =>
-                {
-                    o.MigrationsAssembly("TS.EasyStockManager.Web");
-                });
+                options.UseSqlServer(Configuration["ConnectionStrings:SqlConStr"].ToString());
             });
 
             //services.AddDbContext<EasyStockManagerDbContext>(options =>

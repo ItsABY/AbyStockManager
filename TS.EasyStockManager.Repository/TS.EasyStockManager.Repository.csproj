@@ -8,9 +8,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TS.EasyStockManager.Core\TS.EasyStockManager.Core.csproj" />
-    <ProjectReference Include="..\TS.EasyStockManager.Data\TS.EasyStockManager.Data.csproj" />
-  </ItemGroup>
-
 </Project>
