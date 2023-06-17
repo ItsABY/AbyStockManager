@@ -34,7 +34,8 @@ namespace Aby.StockManager.Web.Controllers
             _transactionService = transactionService;
             _mapper = mapper;
         }
-        public async Task<IActionResult> StoreStockReport()
+
+        public async Task<IActionResult> Index()
         {
             SearchStoreStockReportViewModel model = new SearchStoreStockReportViewModel();
             model.StoreList = await GetStoreList();
