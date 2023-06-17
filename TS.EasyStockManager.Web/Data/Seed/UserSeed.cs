@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TS.EasyStockManager.Data.Entity;
-using TS.EasyStockManager.Common.Extensions;
+using Aby.StockManager.Data.Entity;
+using Aby.StockManager.Common.Extensions;
 
-namespace TS.EasyStockManager.Data.Seed
+namespace Aby.StockManager.Data.Seed
 {
     internal class UserSeed : IEntityTypeConfiguration<User>
     {

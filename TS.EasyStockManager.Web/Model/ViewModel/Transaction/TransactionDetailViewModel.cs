@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TS.EasyStockManager.Model.ViewModel.Transaction
+namespace Aby.StockManager.Model.ViewModel.Transaction
 {
     public class TransactionDetailViewModel
     {

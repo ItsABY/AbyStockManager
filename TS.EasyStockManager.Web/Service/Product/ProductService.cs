@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-using TS.EasyStockManager.Core.Service;
-using TS.EasyStockManager.Core.UnitOfWorks;
-using TS.EasyStockManager.Model.Domain;
-using TS.EasyStockManager.Model.Service;
-using TS.EasyStockManager.Service.Base;
-using TS.EasyStockManager.Web.Common.Message;
+using Aby.StockManager.Core.Service;
+using Aby.StockManager.Core.UnitOfWorks;
+using Aby.StockManager.Model.Domain;
+using Aby.StockManager.Model.Service;
+using Aby.StockManager.Service.Base;
 
-using Entity = TS.EasyStockManager.Data.Entity;
+using Entity = Aby.StockManager.Data.Entity;
+using AbyStockManager.Web.Common.Message;
 
-namespace TS.EasyStockManager.Service.Product
+namespace Aby.StockManager.Service.Product
 {
     public class ProductService : BaseService, IProductService
     {

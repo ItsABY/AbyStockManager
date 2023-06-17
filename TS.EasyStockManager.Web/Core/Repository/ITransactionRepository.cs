@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TS.EasyStockManager.Core.Repository
+namespace Aby.StockManager.Core.Repository
 {
-    public interface ITransactionRepository : IRepository<TS.EasyStockManager.Data.Entity.Transaction>
+    public interface ITransactionRepository : IRepository<Aby.StockManager.Data.Entity.Transaction>
     {
-        Task<TS.EasyStockManager.Data.Entity.Transaction> GetWithDetailById(int id);
-        Task<TS.EasyStockManager.Data.Entity.Transaction> GetWithDetailAndProductById(int id);
+        Task<Aby.StockManager.Data.Entity.Transaction> GetWithDetailById(int id);
+        Task<Aby.StockManager.Data.Entity.Transaction> GetWithDetailAndProductById(int id);
     }
 }

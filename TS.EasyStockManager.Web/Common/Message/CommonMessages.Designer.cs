@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TS.EasyStockManager.Web.Common.Message {
+namespace AbyStockManager.Web.Common.Message {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace TS.EasyStockManager.Web.Common.Message {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TS.EasyStockManager.Web.Common.Message.CommonMessages", typeof(CommonMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AbyStockManager.Web.Common.Message.CommonMessages", typeof(CommonMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

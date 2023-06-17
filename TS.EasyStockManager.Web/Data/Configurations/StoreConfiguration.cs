@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TS.EasyStockManager.Data.Entity;
+using Aby.StockManager.Data.Entity;
 
-namespace TS.EasyStockManager.Data.Configurations
+namespace Aby.StockManager.Data.Configurations
 {
     internal class StoreConfiguration : IEntityTypeConfiguration<Store>
     {

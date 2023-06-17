@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TS.EasyStockManager.Core.Repository
+namespace Aby.StockManager.Core.Repository
 {
-    public interface IUnitOfMeasureRepository : IRepository<TS.EasyStockManager.Data.Entity.UnitOfMeasure>
+    public interface IUnitOfMeasureRepository : IRepository<Aby.StockManager.Data.Entity.UnitOfMeasure>
     {
     }
 }

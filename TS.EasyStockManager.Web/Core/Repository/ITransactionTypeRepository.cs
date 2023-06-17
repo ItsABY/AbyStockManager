@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TS.EasyStockManager.Core.Repository
+namespace Aby.StockManager.Core.Repository
 {
-    public interface ITransactionTypeRepository : IRepository<TS.EasyStockManager.Data.Entity.TransactionType>
+    public interface ITransactionTypeRepository : IRepository<Aby.StockManager.Data.Entity.TransactionType>
     {
     }
 }

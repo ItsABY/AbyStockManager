@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-using TS.EasyStockManager.Model.ViewModel.Base;
+using Aby.StockManager.Model.ViewModel.Base;
 
-namespace TS.EasyStockManager.Model.ViewModel.UnitOfMeasure
+namespace Aby.StockManager.Model.ViewModel.UnitOfMeasure
 {
     public class EditUnitOfMeasureViewModel : BaseViewModel
     {

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TS.EasyStockManager.Core.Repository
+namespace Aby.StockManager.Core.Repository
 {
     public interface IRepository<TEntity> where TEntity : class
     {

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TS.EasyStockManager.Model.Domain;
-using TS.EasyStockManager.Model.Service;
+using Aby.StockManager.Model.Domain;
+using Aby.StockManager.Model.Service;
 
-namespace TS.EasyStockManager.Core.Service
+namespace Aby.StockManager.Core.Service
 {
     public interface IStoreStockService : IService<StoreStockDTO>
     {

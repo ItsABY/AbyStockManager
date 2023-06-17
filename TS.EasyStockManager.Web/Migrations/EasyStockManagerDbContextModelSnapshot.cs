@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TS.EasyStockManager.Data.Context;
+using Aby.StockManager.Data.Context;
 
-namespace TS.EasyStockManager.Web.Migrations
+namespace Aby.StockManager.Web.Migrations
 {
     [DbContext(typeof(EasyStockManagerDbContext))]
     partial class EasyStockManagerDbContextModelSnapshot : ModelSnapshot
@@ -19,7 +19,7 @@ namespace TS.EasyStockManager.Web.Migrations
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.Category", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -41,7 +41,7 @@ namespace TS.EasyStockManager.Web.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.Product", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -98,7 +98,7 @@ namespace TS.EasyStockManager.Web.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.Store", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.Store", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -134,7 +134,7 @@ namespace TS.EasyStockManager.Web.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.StoreStock", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.StoreStock", b =>
                 {
                     b.Property<int>("StoreId")
                         .HasColumnType("int");
@@ -152,7 +152,7 @@ namespace TS.EasyStockManager.Web.Migrations
                     b.ToTable("StoreStock");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.Transaction", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.Transaction", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -194,7 +194,7 @@ namespace TS.EasyStockManager.Web.Migrations
                     b.ToTable("Transaction");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.TransactionDetail", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.TransactionDetail", b =>
                 {
                     b.Property<int>("TransactionId")
                         .HasColumnType("int");
@@ -212,7 +212,7 @@ namespace TS.EasyStockManager.Web.Migrations
                     b.ToTable("TransactionDetail");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.TransactionType", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.TransactionType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -252,7 +252,7 @@ namespace TS.EasyStockManager.Web.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.UnitOfMeasure", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.UnitOfMeasure", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -302,7 +302,7 @@ namespace TS.EasyStockManager.Web.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.User", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -353,13 +353,13 @@ namespace TS.EasyStockManager.Web.Migrations
                         });
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.Product", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.Product", b =>
                 {
-                    b.HasOne("TS.EasyStockManager.Data.Entity.Category", "Category")
+                    b.HasOne("Aby.StockManager.Data.Entity.Category", "Category")
                         .WithMany("Product")
                         .HasForeignKey("CategoryId");
 
-                    b.HasOne("TS.EasyStockManager.Data.Entity.UnitOfMeasure", "UnitOfMeasure")
+                    b.HasOne("Aby.StockManager.Data.Entity.UnitOfMeasure", "UnitOfMeasure")
                         .WithMany("Product")
                         .HasForeignKey("UnitOfMeasureId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -370,15 +370,15 @@ namespace TS.EasyStockManager.Web.Migrations
                     b.Navigation("UnitOfMeasure");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.StoreStock", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.StoreStock", b =>
                 {
-                    b.HasOne("TS.EasyStockManager.Data.Entity.Product", "Product")
+                    b.HasOne("Aby.StockManager.Data.Entity.Product", "Product")
                         .WithMany("StoreStock")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TS.EasyStockManager.Data.Entity.Store", "Store")
+                    b.HasOne("Aby.StockManager.Data.Entity.Store", "Store")
                         .WithMany("StoreStock")
                         .HasForeignKey("StoreId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -389,19 +389,19 @@ namespace TS.EasyStockManager.Web.Migrations
                     b.Navigation("Store");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.Transaction", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.Transaction", b =>
                 {
-                    b.HasOne("TS.EasyStockManager.Data.Entity.Store", "Store")
+                    b.HasOne("Aby.StockManager.Data.Entity.Store", "Store")
                         .WithMany()
                         .HasForeignKey("StoreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TS.EasyStockManager.Data.Entity.Store", "ToStore")
+                    b.HasOne("Aby.StockManager.Data.Entity.Store", "ToStore")
                         .WithMany()
                         .HasForeignKey("ToStoreId");
 
-                    b.HasOne("TS.EasyStockManager.Data.Entity.TransactionType", "TransactionType")
+                    b.HasOne("Aby.StockManager.Data.Entity.TransactionType", "TransactionType")
                         .WithMany()
                         .HasForeignKey("TransactionTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -414,15 +414,15 @@ namespace TS.EasyStockManager.Web.Migrations
                     b.Navigation("TransactionType");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.TransactionDetail", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.TransactionDetail", b =>
                 {
-                    b.HasOne("TS.EasyStockManager.Data.Entity.Product", "Product")
+                    b.HasOne("Aby.StockManager.Data.Entity.Product", "Product")
                         .WithMany("TransactionDetail")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TS.EasyStockManager.Data.Entity.Transaction", "Transaction")
+                    b.HasOne("Aby.StockManager.Data.Entity.Transaction", "Transaction")
                         .WithMany("TransactionDetail")
                         .HasForeignKey("TransactionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -433,29 +433,29 @@ namespace TS.EasyStockManager.Web.Migrations
                     b.Navigation("Transaction");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.Category", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.Category", b =>
                 {
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.Product", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.Product", b =>
                 {
                     b.Navigation("StoreStock");
 
                     b.Navigation("TransactionDetail");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.Store", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.Store", b =>
                 {
                     b.Navigation("StoreStock");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.Transaction", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.Transaction", b =>
                 {
                     b.Navigation("TransactionDetail");
                 });
 
-            modelBuilder.Entity("TS.EasyStockManager.Data.Entity.UnitOfMeasure", b =>
+            modelBuilder.Entity("Aby.StockManager.Data.Entity.UnitOfMeasure", b =>
                 {
                     b.Navigation("Product");
                 });

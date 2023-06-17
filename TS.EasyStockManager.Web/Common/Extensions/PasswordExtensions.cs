@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace TS.EasyStockManager.Common.Extensions
+namespace Aby.StockManager.Common.Extensions
 {
     public static class PasswordExtensions
     {

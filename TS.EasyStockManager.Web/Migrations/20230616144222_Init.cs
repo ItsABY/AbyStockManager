@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TS.EasyStockManager.Web.Migrations
+namespace Aby.StockManager.Web.Migrations
 {
     public partial class Init : Migration
     {

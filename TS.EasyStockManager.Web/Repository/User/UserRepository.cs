@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TS.EasyStockManager.Core.Repository;
-using TS.EasyStockManager.Data.Context;
-using TS.EasyStockManager.Repository.Base;
+using Aby.StockManager.Core.Repository;
+using Aby.StockManager.Data.Context;
+using Aby.StockManager.Repository.Base;
 
-namespace TS.EasyStockManager.Repository.User
+namespace Aby.StockManager.Repository.User
 {
-    public class UserRepository : Repository<TS.EasyStockManager.Data.Entity.User>, IUserRepository
+    public class UserRepository : Repository<Aby.StockManager.Data.Entity.User>, IUserRepository
     {
         private EasyStockManagerDbContext dbContext { get => _context as EasyStockManagerDbContext; }
 

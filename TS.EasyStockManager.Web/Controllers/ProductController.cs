@@ -7,13 +7,13 @@ using AutoMapper;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using TS.EasyStockManager.Core.Service;
-using TS.EasyStockManager.Model.Domain;
-using TS.EasyStockManager.Model.Service;
-using TS.EasyStockManager.Model.ViewModel.JsonResult;
-using TS.EasyStockManager.Model.ViewModel.Product;
+using Aby.StockManager.Core.Service;
+using Aby.StockManager.Model.Domain;
+using Aby.StockManager.Model.Service;
+using Aby.StockManager.Model.ViewModel.JsonResult;
+using Aby.StockManager.Model.ViewModel.Product;
 
-namespace TS.EasyStockManager.Web.Controllers
+namespace Aby.StockManager.Web.Controllers
 {
     public class ProductController : Controller
     {

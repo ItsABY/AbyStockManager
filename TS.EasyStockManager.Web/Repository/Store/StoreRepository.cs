@@ -2,13 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TS.EasyStockManager.Core.Repository;
-using TS.EasyStockManager.Data.Context;
-using TS.EasyStockManager.Repository.Base;
+using Aby.StockManager.Core.Repository;
+using Aby.StockManager.Data.Context;
+using Aby.StockManager.Repository.Base;
 
-namespace TS.EasyStockManager.Repository.Store
+namespace Aby.StockManager.Repository.Store
 {
-    public class StoreRepository : Repository<TS.EasyStockManager.Data.Entity.Store>, IStoreRepository
+    public class StoreRepository : Repository<Aby.StockManager.Data.Entity.Store>, IStoreRepository
     {
         private EasyStockManagerDbContext dbContext { get => _context as EasyStockManagerDbContext; }
 

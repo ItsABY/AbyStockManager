@@ -4,13 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using TS.EasyStockManager.Core.Service;
-using TS.EasyStockManager.Model.Domain;
-using TS.EasyStockManager.Model.Service;
-using TS.EasyStockManager.Model.ViewModel.JsonResult;
-using TS.EasyStockManager.Model.ViewModel.User;
+using Aby.StockManager.Core.Service;
+using Aby.StockManager.Model.Domain;
+using Aby.StockManager.Model.Service;
+using Aby.StockManager.Model.ViewModel.JsonResult;
+using Aby.StockManager.Model.ViewModel.User;
 
-namespace TS.EasyStockManager.Web.Controllers
+namespace Aby.StockManager.Web.Controllers
 {
     public class UserController : Controller
     {

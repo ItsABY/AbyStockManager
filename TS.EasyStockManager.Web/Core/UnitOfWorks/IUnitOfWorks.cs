@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TS.EasyStockManager.Core.Repository;
+using Aby.StockManager.Core.Repository;
 
-namespace TS.EasyStockManager.Core.UnitOfWorks
+namespace Aby.StockManager.Core.UnitOfWorks
 {
     public interface IUnitOfWorks : IDisposable
     {

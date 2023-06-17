@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TS.EasyStockManager.Model.ViewModel.Base;
+using Aby.StockManager.Model.ViewModel.Base;
 
-namespace TS.EasyStockManager.Model.ViewModel.User
+namespace Aby.StockManager.Model.ViewModel.User
 {
     public class ListUserViewModel : BaseViewModel
     {

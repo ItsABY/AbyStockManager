@@ -5,9 +5,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using TS.EasyStockManager.Core.Repository;
+using Aby.StockManager.Core.Repository;
 
-namespace TS.EasyStockManager.Repository.Base
+namespace Aby.StockManager.Repository.Base
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {

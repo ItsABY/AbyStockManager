@@ -2,11 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TS.EasyStockManager.Data.Configurations;
-using TS.EasyStockManager.Data.Entity;
-using TS.EasyStockManager.Data.Seed;
+using Aby.StockManager.Data.Configurations;
+using Aby.StockManager.Data.Entity;
+using Aby.StockManager.Data.Seed;
 
-namespace TS.EasyStockManager.Data.Context
+namespace Aby.StockManager.Data.Context
 {
     public class EasyStockManagerDbContext : DbContext
     {

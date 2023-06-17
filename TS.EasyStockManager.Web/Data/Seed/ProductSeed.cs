@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 
-using TS.EasyStockManager.Data.Entity;
+using Aby.StockManager.Data.Entity;
 
-namespace TS.EasyStockManager.Data.Seed
+namespace Aby.StockManager.Data.Seed
 {
     internal class ProductSeed : IEntityTypeConfiguration<Product>
     {

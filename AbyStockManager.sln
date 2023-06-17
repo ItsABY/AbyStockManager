@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TS.EasyStockManager.Web", "TS.EasyStockManager.Web\TS.EasyStockManager.Web.csproj", "{94061C5B-8E7A-455E-AED4-B6FB6E3985AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbyStockManager.Web", "TS.EasyStockManager.Web\AbyStockManager.Web.csproj", "{94061C5B-8E7A-455E-AED4-B6FB6E3985AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

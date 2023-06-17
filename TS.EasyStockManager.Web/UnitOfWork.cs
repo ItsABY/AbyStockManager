@@ -3,20 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TS.EasyStockManager.Core.Repository;
-using TS.EasyStockManager.Core.UnitOfWorks;
-using TS.EasyStockManager.Data.Context;
-using TS.EasyStockManager.Repository.Category;
-using TS.EasyStockManager.Repository.Product;
-using TS.EasyStockManager.Repository.Store;
-using TS.EasyStockManager.Repository.StoreStock;
-using TS.EasyStockManager.Repository.Transaction;
-using TS.EasyStockManager.Repository.TransactionDetail;
-using TS.EasyStockManager.Repository.TransactionType;
-using TS.EasyStockManager.Repository.UnitOfMeasure;
-using TS.EasyStockManager.Repository.User;
+using Aby.StockManager.Core.Repository;
+using Aby.StockManager.Core.UnitOfWorks;
+using Aby.StockManager.Data.Context;
+using Aby.StockManager.Repository.Category;
+using Aby.StockManager.Repository.Product;
+using Aby.StockManager.Repository.Store;
+using Aby.StockManager.Repository.StoreStock;
+using Aby.StockManager.Repository.Transaction;
+using Aby.StockManager.Repository.TransactionDetail;
+using Aby.StockManager.Repository.TransactionType;
+using Aby.StockManager.Repository.UnitOfMeasure;
+using Aby.StockManager.Repository.User;
 
-namespace TS.EasyStockManager.UnitOfWork
+namespace Aby.StockManager.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWorks
     {

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TS.EasyStockManager.Data.Entity;
+using Aby.StockManager.Data.Entity;
 
-namespace TS.EasyStockManager.Core.Repository
+namespace Aby.StockManager.Core.Repository
 {
-    public interface ITransactionDetailRepository : IRepository<TS.EasyStockManager.Data.Entity.TransactionDetail>
+    public interface ITransactionDetailRepository : IRepository<Aby.StockManager.Data.Entity.TransactionDetail>
     {
-        void DeleteAllRecordByTransaction(ICollection<TS.EasyStockManager.Data.Entity.TransactionDetail> transactionDetails);
-        Task<IEnumerable<TS.EasyStockManager.Data.Entity.TransactionDetail>> GetByTransactionId(int transactionId);
+        void DeleteAllRecordByTransaction(ICollection<Aby.StockManager.Data.Entity.TransactionDetail> transactionDetails);
+        Task<IEnumerable<Aby.StockManager.Data.Entity.TransactionDetail>> GetByTransactionId(int transactionId);
     }
 }

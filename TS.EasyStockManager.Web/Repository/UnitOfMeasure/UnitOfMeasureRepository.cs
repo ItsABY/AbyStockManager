@@ -2,13 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TS.EasyStockManager.Core.Repository;
-using TS.EasyStockManager.Data.Context;
-using TS.EasyStockManager.Repository.Base;
+using Aby.StockManager.Core.Repository;
+using Aby.StockManager.Data.Context;
+using Aby.StockManager.Repository.Base;
 
-namespace TS.EasyStockManager.Repository.UnitOfMeasure
+namespace Aby.StockManager.Repository.UnitOfMeasure
 {
-    public class UnitOfMeasureRepository : Repository<TS.EasyStockManager.Data.Entity.UnitOfMeasure>, IUnitOfMeasureRepository
+    public class UnitOfMeasureRepository : Repository<Aby.StockManager.Data.Entity.UnitOfMeasure>, IUnitOfMeasureRepository
     {
         private EasyStockManagerDbContext dbContext { get => _context as EasyStockManagerDbContext; }
         public UnitOfMeasureRepository(DbContext context) : base(context)

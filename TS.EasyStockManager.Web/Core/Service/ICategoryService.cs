@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TS.EasyStockManager.Model.Domain;
+using Aby.StockManager.Model.Domain;
 
-namespace TS.EasyStockManager.Core.Service
+namespace Aby.StockManager.Core.Service
 {
     public interface ICategoryService : IService<CategoryDTO>
     {

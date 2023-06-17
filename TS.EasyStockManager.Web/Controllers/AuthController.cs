@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TS.EasyStockManager.Core.Service;
-using TS.EasyStockManager.Model.Service;
-using TS.EasyStockManager.Model.ViewModel.Auth;
-using TS.EasyStockManager.Model.ViewModel.JsonResult;
+using Aby.StockManager.Core.Service;
+using Aby.StockManager.Model.Service;
+using Aby.StockManager.Model.ViewModel.Auth;
+using Aby.StockManager.Model.ViewModel.JsonResult;
 
-namespace TS.EasyStockManager.Web.Controllers
+namespace Aby.StockManager.Web.Controllers
 {
     public class AuthController : Controller
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TS.EasyStockManager.Data.Entity
+namespace Aby.StockManager.Data.Entity
 {
     public class Product : BaseEntity
     {

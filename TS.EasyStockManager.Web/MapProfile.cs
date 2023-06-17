@@ -3,20 +3,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TS.EasyStockManager.Data.Entity;
-using TS.EasyStockManager.Model.Domain;
-using TS.EasyStockManager.Model.Service;
-using TS.EasyStockManager.Model.ViewModel.Category;
-using TS.EasyStockManager.Model.ViewModel.JsonResult;
-using TS.EasyStockManager.Model.ViewModel.Product;
-using TS.EasyStockManager.Model.ViewModel.Report.StoreStock;
-using TS.EasyStockManager.Model.ViewModel.Report.TransactionDetail;
-using TS.EasyStockManager.Model.ViewModel.Store;
-using TS.EasyStockManager.Model.ViewModel.Transaction;
-using TS.EasyStockManager.Model.ViewModel.UnitOfMeasure;
-using TS.EasyStockManager.Model.ViewModel.User;
+using Aby.StockManager.Data.Entity;
+using Aby.StockManager.Model.Domain;
+using Aby.StockManager.Model.Service;
+using Aby.StockManager.Model.ViewModel.Category;
+using Aby.StockManager.Model.ViewModel.JsonResult;
+using Aby.StockManager.Model.ViewModel.Product;
+using Aby.StockManager.Model.ViewModel.Report.StoreStock;
+using Aby.StockManager.Model.ViewModel.Report.TransactionDetail;
+using Aby.StockManager.Model.ViewModel.Store;
+using Aby.StockManager.Model.ViewModel.Transaction;
+using Aby.StockManager.Model.ViewModel.UnitOfMeasure;
+using Aby.StockManager.Model.ViewModel.User;
 
-namespace TS.EasyStockManager.Mapper
+namespace Aby.StockManager.Mapper
 {
     public class MapProfile : Profile
     {

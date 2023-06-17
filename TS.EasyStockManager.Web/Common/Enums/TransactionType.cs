@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace TS.EasyStockManager.Common.Enums
+namespace Aby.StockManager.Common.Enums
 {
     public enum TransactionType
     {

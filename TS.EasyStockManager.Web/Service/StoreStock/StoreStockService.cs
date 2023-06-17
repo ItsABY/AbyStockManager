@@ -3,14 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TS.EasyStockManager.Core.Service;
-using TS.EasyStockManager.Core.UnitOfWorks;
-using TS.EasyStockManager.Model.Domain;
-using TS.EasyStockManager.Model.Service;
-using TS.EasyStockManager.Service.Base;
-using Entity = TS.EasyStockManager.Data.Entity;
+using Aby.StockManager.Core.Service;
+using Aby.StockManager.Core.UnitOfWorks;
+using Aby.StockManager.Model.Domain;
+using Aby.StockManager.Model.Service;
+using Aby.StockManager.Service.Base;
+using Entity = Aby.StockManager.Data.Entity;
 
-namespace TS.EasyStockManager.Service.StoreStock
+namespace Aby.StockManager.Service.StoreStock
 {
     public class StoreStockService : BaseService, IStoreStockService
     {

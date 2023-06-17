@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TS.EasyStockManager.Model.ViewModel.JsonResult
+namespace Aby.StockManager.Model.ViewModel.JsonResult
 {
     public class JsonDataTableModel: JsonResultModel
     {

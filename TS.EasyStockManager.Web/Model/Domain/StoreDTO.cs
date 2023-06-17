@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TS.EasyStockManager.Model.Domain
+namespace Aby.StockManager.Model.Domain
 {
     public class StoreDTO : BaseDTO
     {

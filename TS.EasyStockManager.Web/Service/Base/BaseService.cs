@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TS.EasyStockManager.Core.UnitOfWorks;
+using Aby.StockManager.Core.UnitOfWorks;
 
-namespace TS.EasyStockManager.Service.Base
+namespace Aby.StockManager.Service.Base
 {
     public class BaseService
     {

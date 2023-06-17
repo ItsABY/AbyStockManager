@@ -1,4 +1,4 @@
-﻿@model TS.EasyStockManager.Model.ViewModel.Transaction.SearchTransactionViewModel
+﻿@model Aby.StockManager.Model.ViewModel.Transaction.SearchTransactionViewModel
 @{
     ViewData["Title"] = "Transaction List";
 }
@@ -33,7 +33,7 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label asp-for="TransactionTypeId"></label>
-                                    <select asp-for="TransactionTypeId" class="form-control form-control-sm" asp-items="Html.GetEnumSelectList<TS.EasyStockManager.Common.Enums.TransactionType>()">
+                                    <select asp-for="TransactionTypeId" class="form-control form-control-sm" asp-items="Html.GetEnumSelectList<Aby.StockManager.Common.Enums.TransactionType>()">
                                         <option value="">Select Transaction Type</option>
                                     </select>
                                 </div>

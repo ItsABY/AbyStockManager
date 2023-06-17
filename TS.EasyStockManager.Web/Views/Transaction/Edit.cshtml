@@ -1,4 +1,4 @@
-﻿@model TS.EasyStockManager.Model.ViewModel.Transaction.EditTransactionViewModel
+﻿@model Aby.StockManager.Model.ViewModel.Transaction.EditTransactionViewModel
 @{
     ViewData["Title"] = "Edit Transaction";
 }
@@ -23,7 +23,7 @@
                                         <span asp-validation-for="TransactionCode" class="text-danger"></span>
                                     </div>
                                 </div>
-                                @if (Model.TransactionTypeId != (int)TS.EasyStockManager.Common.Enums.TransactionType.Transfer)
+                                @if (Model.TransactionTypeId != (int)Aby.StockManager.Common.Enums.TransactionType.Transfer)
                                 {
                                     <div class="col-md-6">
                                         <div class="form-group">

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TS.EasyStockManager.Model.Service
+namespace Aby.StockManager.Model.Service
 {
     public partial class ServiceResult
     {
