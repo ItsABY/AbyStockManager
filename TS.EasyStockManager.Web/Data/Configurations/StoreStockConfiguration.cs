@@ -12,7 +12,7 @@ namespace Aby.StockManager.Data.Configurations
         public void Configure(EntityTypeBuilder<StoreStock> builder)
         {
             builder.HasKey(x => new { x.StoreId, x.ProductId });
-            builder.Property(x => x.Stock).HasColumnType("decimal(18,2)");
+            builder.Property(x => x.Stock);
             builder.ToTable("StoreStock");
         }
     }

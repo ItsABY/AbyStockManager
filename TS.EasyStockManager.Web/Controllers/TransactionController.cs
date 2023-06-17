@@ -46,8 +46,7 @@ namespace Aby.StockManager.Web.Controllers
             model.TransactionTypeId = typeId;
             model.PageName = GetPageName(typeId);
             model.StoreList = await GetStoreList();
-            if (typeId == (int)TransactionType.Transfer)
-                model.ToStoreList = model.StoreList;
+
             if (typeId == (int)TransactionType.StockOut)
             {
                 model.TransactionCode = TransactionType.StockOut.ToString();
@@ -96,8 +95,7 @@ namespace Aby.StockManager.Web.Controllers
             model = _mapper.Map<EditTransactionViewModel>(serviceResult.TransactionResult);
             model.StoreList = await GetStoreList();
             model.PageName = GetPageName(typeId);
-            if (typeId == (int)TransactionType.Transfer)
-                model.ToStoreList = model.StoreList;
+
             model.TransactionDetailCount = model.TransactionDetail.Count();
             return View(model);
         }
@@ -214,9 +212,7 @@ namespace Aby.StockManager.Web.Controllers
 
         private string GetPageName(int transactionTypeId)
         {
-            if ((int)TransactionType.Transfer == transactionTypeId)
-                return "Transfer";
-            else if ((int)TransactionType.StockIn == transactionTypeId)
+            if ((int)TransactionType.StockIn == transactionTypeId)
                 return "Stock Receipt";
             else
                 return "Stock Out";

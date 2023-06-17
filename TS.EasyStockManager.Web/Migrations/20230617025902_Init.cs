@@ -1,20 +1,26 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Aby.StockManager.Web.Migrations
+#nullable disable
+
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
+namespace AbyStockManager.Web.Migrations
 {
+    /// <inheritdoc />
     public partial class Init : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Category",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CategoryName = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -25,11 +31,11 @@ namespace Aby.StockManager.Web.Migrations
                 name: "Store",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    StoreName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    StoreCode = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    StoreName = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
+                    StoreCode = table.Column<string>(type: "TEXT", maxLength: 10, nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,10 +46,10 @@ namespace Aby.StockManager.Web.Migrations
                 name: "TransactionType",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TransactionTypeName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    TransactionTypeName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -54,11 +60,11 @@ namespace Aby.StockManager.Web.Migrations
                 name: "UnitOfMeasure",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UnitOfMeasureName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Isocode = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UnitOfMeasureName = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
+                    Isocode = table.Column<string>(type: "TEXT", maxLength: 3, nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -69,13 +75,13 @@ namespace Aby.StockManager.Web.Migrations
                 name: "User",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Surname = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Email = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    Password = table.Column<string>(type: "TEXT", maxLength: 40, nullable: false),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
+                    Surname = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,15 +92,15 @@ namespace Aby.StockManager.Web.Migrations
                 name: "Transaction",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TransactionCode = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
-                    StoreId = table.Column<int>(type: "int", nullable: false),
-                    ToStoreId = table.Column<int>(type: "int", nullable: true),
-                    TransactionTypeId = table.Column<int>(type: "int", nullable: false),
-                    TransactionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    TransactionCode = table.Column<string>(type: "TEXT", maxLength: 30, nullable: true),
+                    StoreId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ToStoreId = table.Column<int>(type: "INTEGER", nullable: true),
+                    TransactionTypeId = table.Column<int>(type: "INTEGER", nullable: false),
+                    TransactionDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -109,8 +115,7 @@ namespace Aby.StockManager.Web.Migrations
                         name: "FK_Transaction_Store_ToStoreId",
                         column: x => x.ToStoreId,
                         principalTable: "Store",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Transaction_TransactionType_TransactionTypeId",
                         column: x => x.TransactionTypeId,
@@ -123,16 +128,16 @@ namespace Aby.StockManager.Web.Migrations
                 name: "Product",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Barcode = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    CategoryId = table.Column<int>(type: "int", nullable: true),
-                    UnitOfMeasureId = table.Column<int>(type: "int", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ProductName = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    Barcode = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    Image = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
+                    Price = table.Column<double>(type: "decimal(18,2)", nullable: true),
+                    CategoryId = table.Column<int>(type: "INTEGER", nullable: true),
+                    UnitOfMeasureId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -141,8 +146,7 @@ namespace Aby.StockManager.Web.Migrations
                         name: "FK_Product_Category_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Category",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Product_UnitOfMeasure_UnitOfMeasureId",
                         column: x => x.UnitOfMeasureId,
@@ -155,9 +159,9 @@ namespace Aby.StockManager.Web.Migrations
                 name: "StoreStock",
                 columns: table => new
                 {
-                    StoreId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    Stock = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    StoreId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ProductId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Stock = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -180,9 +184,9 @@ namespace Aby.StockManager.Web.Migrations
                 name: "TransactionDetail",
                 columns: table => new
                 {
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    TransactionId = table.Column<int>(type: "int", nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    ProductId = table.Column<int>(type: "INTEGER", nullable: false),
+                    TransactionId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Amount = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -204,16 +208,15 @@ namespace Aby.StockManager.Web.Migrations
             migrationBuilder.InsertData(
                 table: "Store",
                 columns: new[] { "Id", "CreateDate", "StoreCode", "StoreName" },
-                values: new object[] { 1, new DateTime(2023, 6, 17, 0, 42, 21, 817, DateTimeKind.Local).AddTicks(4547), "EX01", "Example Store" });
+                values: new object[] { 1, new DateTime(2023, 6, 17, 12, 59, 2, 474, DateTimeKind.Local).AddTicks(381), "SDA", "SDA CEAT Tyres" });
 
             migrationBuilder.InsertData(
                 table: "TransactionType",
                 columns: new[] { "Id", "CreateDate", "TransactionTypeName" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 6, 17, 0, 42, 21, 800, DateTimeKind.Local).AddTicks(4455), "Stock Receipt" },
-                    { 2, new DateTime(2023, 6, 17, 0, 42, 21, 803, DateTimeKind.Local).AddTicks(8966), "Stock Out" },
-                    { 3, new DateTime(2023, 6, 17, 0, 42, 21, 803, DateTimeKind.Local).AddTicks(8994), "Transfer" }
+                    { 1, new DateTime(2023, 6, 17, 12, 59, 2, 473, DateTimeKind.Local).AddTicks(9436), "Stock Receipt" },
+                    { 2, new DateTime(2023, 6, 17, 12, 59, 2, 473, DateTimeKind.Local).AddTicks(9487), "Stock Out" }
                 });
 
             migrationBuilder.InsertData(
@@ -221,20 +224,26 @@ namespace Aby.StockManager.Web.Migrations
                 columns: new[] { "Id", "CreateDate", "Isocode", "UnitOfMeasureName" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 6, 17, 0, 42, 21, 805, DateTimeKind.Local).AddTicks(1895), "pc", "Piece" },
-                    { 2, new DateTime(2023, 6, 17, 0, 42, 21, 805, DateTimeKind.Local).AddTicks(2103), "kg", "Kilogram" },
-                    { 3, new DateTime(2023, 6, 17, 0, 42, 21, 805, DateTimeKind.Local).AddTicks(2109), "m", "Meter" }
+                    { 1, new DateTime(2023, 6, 17, 12, 59, 2, 473, DateTimeKind.Local).AddTicks(9612), "pc", "Piece" },
+                    { 2, new DateTime(2023, 6, 17, 12, 59, 2, 473, DateTimeKind.Local).AddTicks(9643), "kg", "Kilogram" },
+                    { 3, new DateTime(2023, 6, 17, 12, 59, 2, 473, DateTimeKind.Local).AddTicks(9647), "m", "Meter" }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "CreateDate", "Email", "Name", "Password", "Surname" },
-                values: new object[] { 1, new DateTime(2023, 6, 17, 0, 42, 21, 817, DateTimeKind.Local).AddTicks(2082), "admin@admin.com", "Admin", "827ccb0eea8a706c4c34a16891f84e7b", "Admin" });
+                values: new object[] { 1, new DateTime(2023, 6, 17, 12, 59, 2, 474, DateTimeKind.Local).AddTicks(288), "jag@sda.com", "Jagdeesh", "2cbe7f341eb6aca638a32b77ddedfd4c", "Tiwari" });
 
             migrationBuilder.InsertData(
                 table: "Product",
                 columns: new[] { "Id", "Barcode", "CategoryId", "CreateDate", "Description", "Image", "Price", "ProductName", "UnitOfMeasureId" },
-                values: new object[] { 1, "EX01", null, new DateTime(2023, 6, 17, 0, 42, 21, 817, DateTimeKind.Local).AddTicks(6833), null, null, 1m, "Example Product", 1 });
+                values: new object[,]
+                {
+                    { 1, "145R12 MILAZE LT TL 8PR", null, new DateTime(2023, 6, 17, 12, 59, 2, 474, DateTimeKind.Local).AddTicks(452), null, null, 2661.0, "145R12 MILAZE LT TL 8PR", 1 },
+                    { 2, "145/80R12 X3 TT", null, new DateTime(2023, 6, 17, 12, 59, 2, 474, DateTimeKind.Local).AddTicks(461), null, null, 2568.0, "145/80R12 X3 TT", 1 },
+                    { 3, "145/80R12 X3 TL", null, new DateTime(2023, 6, 17, 12, 59, 2, 474, DateTimeKind.Local).AddTicks(463), null, null, 2510.0, "145/80R12 X3 TL", 1 },
+                    { 4, "145/80R13 MILAZE X3 TL", null, new DateTime(2023, 6, 17, 12, 59, 2, 474, DateTimeKind.Local).AddTicks(465), null, null, 2782.0, "145/80R13 MILAZE X3 TL", 1 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_CategoryId",
@@ -278,6 +287,7 @@ namespace Aby.StockManager.Web.Migrations
                 unique: true);
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

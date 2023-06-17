@@ -9,9 +9,8 @@ namespace Aby.StockManager.Common.Enums
     {
         [Display(Name = "Stock Receipt")]
         StockIn = 1,
+
         [Display(Name = "Stock Out")]
-        StockOut = 2,
-        [Display(Name = "Transfer")]
-        Transfer = 3
+        StockOut = 2
     }
 }

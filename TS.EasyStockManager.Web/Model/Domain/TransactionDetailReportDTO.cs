@@ -15,7 +15,7 @@ namespace Aby.StockManager.Model.Domain
         public string StoreCode { get; set; }
         public string ToStoreCode { get; set; }
         public string ToStoreName { get; set; }
-        public decimal? Amount { get; set; }
+        public double? Amount { get; set; }
         public string ProductName { get; set; }
         public string Barcode { get; set; }
         public string UnitOfMeasureName { get; set; }

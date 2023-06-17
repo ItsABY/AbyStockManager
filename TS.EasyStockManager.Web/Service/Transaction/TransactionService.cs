@@ -59,30 +59,13 @@ namespace Aby.StockManager.Service.Transaction
                             storeStock.ProductId = transactionDetailItem.ProductId.Value;
                         }
 
-                        if (model.TransactionTypeId == (int)TransactionType.StockOut || model.TransactionTypeId == (int)TransactionType.Transfer)
+                        if (model.TransactionTypeId == (int)TransactionType.StockOut)
                             storeStock.Stock -= transactionDetailItem.Amount.Value;
                         else
                             storeStock.Stock += transactionDetailItem.Amount.Value;
 
                         if (storeStockIsUpdate == false)
                             await _unitOfWork.StoreStockRepository.AddAsync(storeStock);
-
-                        if (model.TransactionTypeId == (int)TransactionType.Transfer && model.ToStoreId.HasValue)
-                        {
-                            bool storeStockTransferIsUpdate = true;
-                            Data.Entity.StoreStock storeStockTransfer = await _unitOfWork.StoreStockRepository.GetByStoreAndProductId(transactionDetailItem.ProductId.Value, model.ToStoreId.Value);
-                            if (storeStockTransfer == null)
-                            {
-                                storeStockTransferIsUpdate = false;
-                                storeStockTransfer = new Entity.StoreStock();
-                                storeStockTransfer.StoreId = model.ToStoreId.Value;
-                                storeStockTransfer.ProductId = transactionDetailItem.ProductId.Value;
-                            }
-
-                            storeStockTransfer.Stock += transactionDetailItem.Amount.Value;
-                            if (storeStockTransferIsUpdate == false)
-                                await _unitOfWork.StoreStockRepository.AddAsync(storeStockTransfer);
-                        }
                     }
                     await _unitOfWork.SaveAsync();
                     result.Id = entity.Id;
@@ -244,16 +227,10 @@ namespace Aby.StockManager.Service.Transaction
                         var storeStock = await _unitOfWork.StoreStockRepository.GetByStoreAndProductId(transactionDetail.ProductId, transaction.StoreId);
                         if (storeStock != null)
                         {
-                            if (transaction.TransactionTypeId == (int)TransactionType.StockOut || transaction.TransactionTypeId == (int)TransactionType.Transfer)
+                            if (transaction.TransactionTypeId == (int)TransactionType.StockOut)
                                 storeStock.Stock += transactionDetail.Amount;
                             else
                                 storeStock.Stock -= transactionDetail.Amount;
-
-                            if (transaction.TransactionTypeId == (int)TransactionType.Transfer)
-                            {
-                                var storeStockTransfer = await _unitOfWork.StoreStockRepository.GetByStoreAndProductId(transactionDetail.ProductId, transaction.ToStoreId.Value);
-                                storeStockTransfer.Stock -= transactionDetail.Amount;
-                            }
                         }
                     }
 
@@ -302,22 +279,13 @@ namespace Aby.StockManager.Service.Transaction
                             Data.Entity.StoreStock storeStock = await _unitOfWork.StoreStockRepository.GetByStoreAndProductId(transactionDetailItem.ProductId, entity.StoreId);
                             if (storeStock != null)
                             {
-                                if (model.TransactionTypeId == (int)TransactionType.StockOut || model.TransactionTypeId == (int)TransactionType.Transfer)
+                                if (model.TransactionTypeId == (int)TransactionType.StockOut)
                                     storeStock.Stock += transactionDetailItem.Amount;
                                 else
                                     storeStock.Stock -= transactionDetailItem.Amount;
                             }
                         }
 
-                        if (model.TransactionTypeId == (int)TransactionType.Transfer)
-                        {
-                            foreach (var transactionDetailItem in entity.TransactionDetail)
-                            {
-                                Data.Entity.StoreStock storeStock = await _unitOfWork.StoreStockRepository.GetByStoreAndProductId(transactionDetailItem.ProductId, entity.ToStoreId.Value);
-                                if (storeStock != null)
-                                    storeStock.Stock -= transactionDetailItem.Amount;
-                            }
-                        }
                         //Delete Old Record
                         _unitOfWork.TransactionDetailRepository.DeleteAllRecordByTransaction(entity.TransactionDetail);
 
@@ -337,30 +305,13 @@ namespace Aby.StockManager.Service.Transaction
                                 storeStock.ProductId = transactionDetailItem.ProductId.Value;
                             }
 
-                            if (model.TransactionTypeId == (int)TransactionType.StockOut || model.TransactionTypeId == (int)TransactionType.Transfer)
+                            if (model.TransactionTypeId == (int)TransactionType.StockOut)
                                 storeStock.Stock -= transactionDetailItem.Amount.Value;
                             else
                                 storeStock.Stock += transactionDetailItem.Amount.Value;
 
                             if (storeStockIsUpdate == false)
                                 await _unitOfWork.StoreStockRepository.AddAsync(storeStock);
-
-                            if (model.TransactionTypeId == (int)TransactionType.Transfer && model.ToStoreId.HasValue)
-                            {
-                                bool storeStockTransferIsUpdate = true;
-                                Data.Entity.StoreStock storeStockTransfer = await _unitOfWork.StoreStockRepository.GetByStoreAndProductId(transactionDetailItem.ProductId.Value, model.ToStoreId.Value);
-                                if (storeStockTransfer == null)
-                                {
-                                    storeStockTransferIsUpdate = false;
-                                    storeStockTransfer = new Entity.StoreStock();
-                                    storeStockTransfer.StoreId = model.ToStoreId.Value;
-                                    storeStockTransfer.ProductId = transactionDetailItem.ProductId.Value;
-                                }
-
-                                storeStockTransfer.Stock += transactionDetailItem.Amount.Value;
-                                if (storeStockTransferIsUpdate == false)
-                                    await _unitOfWork.StoreStockRepository.AddAsync(storeStockTransfer);
-                            }
                         }
 
                         _unitOfWork.TransactionRepository.Update(entity);
