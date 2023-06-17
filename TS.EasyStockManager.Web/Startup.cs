@@ -12,20 +12,20 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using TS.EasyStockManager.Core.Repository;
-using TS.EasyStockManager.Core.Service;
-using TS.EasyStockManager.Core.UnitOfWorks;
-using TS.EasyStockManager.Data.Context;
-using TS.EasyStockManager.Repository.Base;
-using TS.EasyStockManager.Service.Category;
-using TS.EasyStockManager.Service.Product;
-using TS.EasyStockManager.Service.Store;
-using TS.EasyStockManager.Service.StoreStock;
-using TS.EasyStockManager.Service.Transaction;
-using TS.EasyStockManager.Service.UnitOfMeasure;
-using TS.EasyStockManager.Service.User;
+using Aby.StockManager.Core.Repository;
+using Aby.StockManager.Core.Service;
+using Aby.StockManager.Core.UnitOfWorks;
+using Aby.StockManager.Data.Context;
+using Aby.StockManager.Repository.Base;
+using Aby.StockManager.Service.Category;
+using Aby.StockManager.Service.Product;
+using Aby.StockManager.Service.Store;
+using Aby.StockManager.Service.StoreStock;
+using Aby.StockManager.Service.Transaction;
+using Aby.StockManager.Service.UnitOfMeasure;
+using Aby.StockManager.Service.User;
 
-namespace TS.EasyStockManager.Web
+namespace Aby.StockManager.Web
 {
     public class Startup
     {
@@ -39,18 +39,15 @@ namespace TS.EasyStockManager.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<EasyStockManagerDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration["ConnectionStrings:SqlConStr"].ToString(), o =>
-                {
-                    o.MigrationsAssembly("TS.EasyStockManager.Web");
-                });
-            });
-
             //services.AddDbContext<EasyStockManagerDbContext>(options =>
-            //        options.UseSqlite("Data Source=mobile-14-Jun.db"));
+            //{
+            //    options.UseSqlServer(Configuration["ConnectionStrings:SqlConStr"].ToString());
+            //});
 
-            services.AddAutoMapper(c => c.AddProfile<TS.EasyStockManager.Mapper.MapProfile>(), typeof(Startup));
+            services.AddDbContext<EasyStockManagerDbContext>(options =>
+                    options.UseSqlite("Data Source=first-17-Jun.db"));
+
+            services.AddAutoMapper(c => c.AddProfile<Aby.StockManager.Mapper.MapProfile>(), typeof(Startup));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IUnitOfMeasureService, UnitOfMeasureService>();
@@ -59,7 +56,7 @@ namespace TS.EasyStockManager.Web
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IStoreStockService, StoreStockService>();
             services.AddScoped<ITransactionService, TransactionService>();
-            services.AddScoped<IUnitOfWorks, TS.EasyStockManager.UnitOfWork.UnitOfWork>();
+            services.AddScoped<IUnitOfWorks, Aby.StockManager.UnitOfWork.UnitOfWork>();
             services.AddControllersWithViews().
                     AddJsonOptions(options =>
                     {
@@ -100,7 +97,7 @@ namespace TS.EasyStockManager.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}")
+                    pattern: "{controller=Transaction}/{action=Index}/{id?}")
                 .RequireAuthorization();
             });
         }

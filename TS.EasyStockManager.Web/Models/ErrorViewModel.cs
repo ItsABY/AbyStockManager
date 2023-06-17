@@ -1,6 +1,6 @@
 using System;
 
-namespace TS.EasyStockManager.Web.Models
+namespace Aby.StockManager.Web.Models
 {
     public class ErrorViewModel
     {

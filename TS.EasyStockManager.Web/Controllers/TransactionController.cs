@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using TS.EasyStockManager.Common.Enums;
-using TS.EasyStockManager.Core.Service;
-using TS.EasyStockManager.Model.Domain;
-using TS.EasyStockManager.Model.Service;
-using TS.EasyStockManager.Model.ViewModel.JsonResult;
-using TS.EasyStockManager.Model.ViewModel.Transaction;
+using Aby.StockManager.Common.Enums;
+using Aby.StockManager.Core.Service;
+using Aby.StockManager.Model.Domain;
+using Aby.StockManager.Model.Service;
+using Aby.StockManager.Model.ViewModel.JsonResult;
+using Aby.StockManager.Model.ViewModel.Transaction;
 
-namespace TS.EasyStockManager.Web.Controllers
+namespace Aby.StockManager.Web.Controllers
 {
     public class TransactionController : Controller
     {
@@ -46,8 +46,18 @@ namespace TS.EasyStockManager.Web.Controllers
             model.TransactionTypeId = typeId;
             model.PageName = GetPageName(typeId);
             model.StoreList = await GetStoreList();
-            if (typeId == (int)TransactionType.Transfer)
-                model.ToStoreList = model.StoreList;
+
+            if (typeId == (int)TransactionType.StockOut)
+            {
+                model.TransactionCode = TransactionType.StockOut.ToString();
+            }
+            if (typeId == (int)TransactionType.StockIn)
+            {
+                model.TransactionCode = TransactionType.StockIn.ToString();
+            }
+            var serviceResult = await _storeService.GetAll();
+
+            model.StoreId = serviceResult.TransactionResult.FirstOrDefault().Id.Value;
             return View(model);
         }
 
@@ -58,6 +68,14 @@ namespace TS.EasyStockManager.Web.Controllers
             JsonResultModel jsonResultModel = new JsonResultModel();
             try
             {
+                if (model.TransactionTypeId == (int)TransactionType.StockOut)
+                {
+                    model.TransactionCode = TransactionType.StockOut.ToString();
+                }
+                if (model.TransactionTypeId == (int)TransactionType.StockIn)
+                {
+                    model.TransactionCode = TransactionType.StockIn.ToString();
+                }
                 TransactionDTO transactionDTO = _mapper.Map<TransactionDTO>(model);
                 var serviceResult = await _transactionService.AddAsync(transactionDTO);
                 jsonResultModel = _mapper.Map<JsonResultModel>(serviceResult);
@@ -70,7 +88,6 @@ namespace TS.EasyStockManager.Web.Controllers
             return Json(jsonResultModel);
         }
 
-
         public async Task<IActionResult> Edit(int id, int typeId)
         {
             EditTransactionViewModel model = new EditTransactionViewModel();
@@ -78,8 +95,7 @@ namespace TS.EasyStockManager.Web.Controllers
             model = _mapper.Map<EditTransactionViewModel>(serviceResult.TransactionResult);
             model.StoreList = await GetStoreList();
             model.PageName = GetPageName(typeId);
-            if (typeId == (int)TransactionType.Transfer)
-                model.ToStoreList = model.StoreList;
+
             model.TransactionDetailCount = model.TransactionDetail.Count();
             return View(model);
         }
@@ -97,7 +113,7 @@ namespace TS.EasyStockManager.Web.Controllers
                 if (jsonResultModel.IsSucceeded)
                 {
                     jsonResultModel.IsRedirect = true;
-                    jsonResultModel.RedirectUrl = "/Transaction"; 
+                    jsonResultModel.RedirectUrl = "/Transaction";
                 }
             }
             catch (Exception ex)
@@ -193,11 +209,10 @@ namespace TS.EasyStockManager.Web.Controllers
             IEnumerable<SelectListItem> drpProductList = _mapper.Map<IEnumerable<SelectListItem>>(serviceResult.TransactionResult);
             return Json(drpProductList);
         }
+
         private string GetPageName(int transactionTypeId)
         {
-            if ((int)TransactionType.Transfer == transactionTypeId)
-                return "Transfer";
-            else if ((int)TransactionType.StockIn == transactionTypeId)
+            if ((int)TransactionType.StockIn == transactionTypeId)
                 return "Stock Receipt";
             else
                 return "Stock Out";

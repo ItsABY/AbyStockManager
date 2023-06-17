@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace TS.EasyStockManager.Web
+namespace Aby.StockManager.Web
 {
     public class Program
     {
