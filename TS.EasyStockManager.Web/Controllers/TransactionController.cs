@@ -48,6 +48,17 @@ namespace Aby.StockManager.Web.Controllers
             model.StoreList = await GetStoreList();
             if (typeId == (int)TransactionType.Transfer)
                 model.ToStoreList = model.StoreList;
+            if (typeId == (int)TransactionType.StockOut)
+            {
+                model.TransactionCode = TransactionType.StockOut.ToString();
+            }
+            if (typeId == (int)TransactionType.StockIn)
+            {
+                model.TransactionCode = TransactionType.StockIn.ToString();
+            }
+            var serviceResult = await _storeService.GetAll();
+
+            model.StoreId = serviceResult.TransactionResult.FirstOrDefault().Id.Value;
             return View(model);
         }
 
@@ -58,6 +69,14 @@ namespace Aby.StockManager.Web.Controllers
             JsonResultModel jsonResultModel = new JsonResultModel();
             try
             {
+                if (model.TransactionTypeId == (int)TransactionType.StockOut)
+                {
+                    model.TransactionCode = TransactionType.StockOut.ToString();
+                }
+                if (model.TransactionTypeId == (int)TransactionType.StockIn)
+                {
+                    model.TransactionCode = TransactionType.StockIn.ToString();
+                }
                 TransactionDTO transactionDTO = _mapper.Map<TransactionDTO>(model);
                 var serviceResult = await _transactionService.AddAsync(transactionDTO);
                 jsonResultModel = _mapper.Map<JsonResultModel>(serviceResult);
@@ -69,7 +88,6 @@ namespace Aby.StockManager.Web.Controllers
             }
             return Json(jsonResultModel);
         }
-
 
         public async Task<IActionResult> Edit(int id, int typeId)
         {
@@ -97,7 +115,7 @@ namespace Aby.StockManager.Web.Controllers
                 if (jsonResultModel.IsSucceeded)
                 {
                     jsonResultModel.IsRedirect = true;
-                    jsonResultModel.RedirectUrl = "/Transaction"; 
+                    jsonResultModel.RedirectUrl = "/Transaction";
                 }
             }
             catch (Exception ex)
@@ -193,6 +211,7 @@ namespace Aby.StockManager.Web.Controllers
             IEnumerable<SelectListItem> drpProductList = _mapper.Map<IEnumerable<SelectListItem>>(serviceResult.TransactionResult);
             return Json(drpProductList);
         }
+
         private string GetPageName(int transactionTypeId)
         {
             if ((int)TransactionType.Transfer == transactionTypeId)
